@@ -1,0 +1,97 @@
+<html>
+<head>
+<style>
+
+img{
+    height: 10;
+    width: 10;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+}
+
+div.item img:hover{
+    animation-name: anim;
+    animation-duration: 3.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+body{
+    background-color: black;
+}
+
+@keyframes anim {
+    0%{
+         transform: scale(1);
+    }75%{
+        transform: scale(3);    
+        opacity: 1;
+    }100%{
+        transform: scale(70) rotate(1080deg);
+        background-color: red;
+        opacity: 0.5;
+    }
+}
+
+.bloodanim{
+    animation: blood 12s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes blood {
+    100%{
+        background-image: url("https://i.pinimg.com/originals/94/9e/86/949e86d11b8b21a79a11fd1781a0573e.jpg");          
+    }
+}
+
+p{
+    color: white;
+}
+</style>
+</head>
+
+<body id="bodyy">
+    <p> Click Here </p>
+
+    <div class="item">
+        <img class="image"src="https://www.syfy.com/sites/syfy/files/styles/1200x680_hero/public/2018/08/thenun2018.png"/>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var nunTheme = document.createElement('audio');
+            nunTheme.setAttribute('src', 'https://www.mboxdrive.com/The%20Conjuring%202%20(Original%20Motion%20Picture%20Soundtrack)%2009%20Nun%20Painting.mp3');
+            nunTheme.play();
+
+            $("img").hide();
+
+            var audioElement = document.createElement('audio');
+            audioElement.setAttribute('src', 'https://www.mboxdrive.com/shaytan%20screaming.mp3');
+
+            $("img.image").hover(function() {
+                $("body").addClass("bloodanim"); 
+                audioElement.play();
+
+
+            }, function(){
+                $("body").removeClass("bloodanim");
+                audioElement.pause();
+            });
+                
+
+            $("p").click(function(){
+                $(this).text("Click Middle");
+                $("img").fadeIn(6000);
+                nunTheme.play();
+            });
+
+            
+        
+        });
+    </script>
+
+</body>
+</html>
